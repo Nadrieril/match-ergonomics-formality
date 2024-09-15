@@ -1161,6 +1161,7 @@ fn test_base64() {
 
 // # Mermaid
 
+use bincode::{Decode, Encode};
 use serde_json::json;
 
 #[derive(Clone, Copy, Debug, Hash, Eq, PartialEq)]
@@ -1663,7 +1664,9 @@ impl Display for Graph {
 
 // # Transitions
 
-#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+#[derive(
+  Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Encode, Decode,
+)]
 #[non_exhaustive]
 pub struct Conf {
   /// Disable match ergonomics entirely.
